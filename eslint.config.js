@@ -1,11 +1,21 @@
-import globals from 'globals';
 import pluginJs from '@eslint/js';
-import pluginReact from 'eslint-plugin-react';
 import stylistic from '@stylistic/eslint-plugin';
+import importNewlines from 'eslint-plugin-import-newlines';
+import pluginReact from 'eslint-plugin-react';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import unusedImports from 'eslint-plugin-unused-imports';
+import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+	{
+		plugins: {
+			'simple-import-sort': simpleImportSort,
+			'unused-imports': unusedImports,
+			'import-newlines': importNewlines,
+		},
+	},
 	{ ignores: ['dist/'] },
 	{ files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
 	{ languageOptions: { globals: { ...globals.browser, ...globals.node } } },
@@ -28,17 +38,16 @@ export default [
 	{
 		rules: {
 			'no-explicit-any': 0,
+			'jsx-quotes': [2, 'prefer-double'],
+			'import-newlines/enforce': ['error', { 'items': 1, 'max-len': 160, 'semi': true }],
+			'object-curly-spacing': ['error', 'always'],
 			'@stylistic/indent': ['error', 'tab'],
 			'@stylistic/no-mixed-spaces-and-tabs': 'error',
 			'@stylistic/object-curly-spacing': ['error', 'always'],
 			'@typescript-eslint/no-explicit-any': 'off',
-			'sort-imports': ['error', {
-				ignoreCase: false,
-				ignoreDeclarationSort: false,
-				ignoreMemberSort: false,
-				memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-				allowSeparatedGroups: false,
-			}],
+			'simple-import-sort/imports': 'error',
+			'simple-import-sort/exports': 'error',
+			'unused-imports/no-unused-imports': 'error',
 		},
 	},
 ];

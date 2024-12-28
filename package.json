@@ -12,8 +12,13 @@
     "@stylistic/eslint-plugin": "^2.12.1",
     "@types/node": ">=18",
     "@types/nunjucks": "^3.2.6",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
     "eslint": "^9.17.0",
+    "eslint-plugin-import-newlines": "^1.4.0",
     "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "glob": "^11.0.0",
     "globals": "^15.14.0",
     "rollup": "^4.29.1",
@@ -63,10 +68,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/biemch/biem-template-utils.git"
-  },
+  "repository": "biemch/biem-template-utils.git",
   "scripts": {
     "build": "vite build",
     "dev": "vite dev",
