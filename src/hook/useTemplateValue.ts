@@ -1,19 +1,32 @@
 import { useMemo } from 'react';
 
-export function useTemplateValue<T>(): T {
+interface TemplateConfig {
+	global?: string;
+	name?: string;
+}
+
+export function useTemplateValue<T>(config: TemplateConfig = {}): T {
+	const {
+		global = 'window',
+		name = 'booking',
+	} = config;
+
 	return useMemo(() => {
 		try {
-			const data = JSON.parse(
-				// @ts-expect-error - window is not defined in typescript
-				(window as unknown as Record<string, string>)?.booking || '{}',
-			);
+			let value = `${global}.${name}`.split('.').reduce<unknown>((obj, key) => {
+				const current = obj as Record<string, unknown>;
+				return current?.[key] as string;
+			}, globalThis);
 
-			return data;
+			const parser = new DOMParser();
+			value = parser.parseFromString(value as string, 'text/html');
+			value = (value as Document).documentElement.textContent || '';
+
+			return JSON.parse(value as string || '{}') as T;
 		}
 		catch (error) {
-			console.error('Failed to parse booking data:', error);
-
-			return {};
+			console.error('Failed to parse template data:', error);
+			return {} as T;
 		}
-	}, []);
+	}, [global, name]);
 }

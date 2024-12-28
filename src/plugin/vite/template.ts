@@ -1,4 +1,3 @@
-import fs from 'fs';
 import nunjucks from 'nunjucks';
 import path from 'path';
 import {
@@ -6,67 +5,42 @@ import {
 	Plugin,
 } from 'vite';
 
-import { Config } from '../../type/config';
-
-interface PluginOptions {
-	configFile?: string;
+interface PluginOptions<T extends object> {
+	defaults: T;
+	template?: {
+		global?: string;
+		name?: string;
+		namespace?: string;
+		key?: string;
+	};
 }
 
-export default function vitePluginBiem({ configFile }: PluginOptions = { configFile: 'biem.config.json' }): Plugin {
-	let config: Config;
-
-	function loadConfig() {
-		const configPath = path.resolve(configFile!);
-
-		if (!fs.existsSync(configPath)) {
-			throw new Error(`${configFile} not found. Please create it in your project root.`);
-		}
-
-		try {
-			const configContent = fs.readFileSync(configPath, 'utf-8');
-			const parsedConfig = JSON.parse(configContent);
-
-			if (!parsedConfig.template?.defaults) {
-				throw new Error('Invalid biem.config.json: Missing template.defaults section');
-			}
-
-			return parsedConfig;
-		}
-		catch (err) {
-			if (err instanceof SyntaxError) {
-				throw new Error(`Invalid JSON in biem.config.json: ${err.message}`);
-			}
-			throw err;
-		}
+export default function vitePluginBiem<T extends object>({
+	defaults,
+	template = {
+		global: 'window',
+		name: 'booking',
+		namespace: 'data',
+		key: 'booking',
+	},
+}: PluginOptions<T>): Plugin {
+	if (!defaults || typeof defaults !== 'object') {
+		throw new Error('defaults must be an object');
 	}
+
+	const config = { template: { defaults } };
+	const {
+		namespace = 'data',
+		key = 'booking',
+		global = 'window',
+		name = 'booking',
+	} = template;
 
 	return {
 		name: 'vite-plugin-biem',
 		enforce: 'pre',
-		configResolved() {
-			try {
-				config = loadConfig();
-			}
-			catch (err) {
-				console.error('Biem Plugin Error:', err instanceof Error ? err.message : String(err));
-				process.exit(1);
-			}
-		},
 		handleHotUpdate(context: HmrContext): void | [] {
 			const filename = path.resolve(context.file);
-
-			if (filename.endsWith('biem.config.json')) {
-				try {
-					config = loadConfig();
-					console.info('biem.config.json has been updated. Reloading configuration.');
-					context.server.ws.send({ type: 'full-reload' });
-					return [];
-				}
-				catch (err) {
-					console.error('Failed to reload biem.config.json:', err instanceof Error ? err.message : String(err));
-					return [];
-				}
-			}
 
 			if (filename.endsWith('.html') || filename.endsWith('.njk')) {
 				console.info(`Template file ${path.basename(filename)} has been changed. Sending full-reload.`);
@@ -75,28 +49,32 @@ export default function vitePluginBiem({ configFile }: PluginOptions = { configF
 			}
 		},
 		transformIndexHtml(html: string) {
-			if (!config) {
-				try {
-					config = loadConfig();
-				}
-				catch (err) {
-					console.error('Biem Plugin Error:', err instanceof Error ? err.message : String(err));
-					return html;
-				}
-			}
-
 			try {
-				const environment = nunjucks.configure({ autoescape: false });
+				const environment = nunjucks.configure({ autoescape: true });
 				environment.addFilter('json', (value: unknown) => JSON.stringify(value));
 
-				html = html.replace('</body>', '\t<script>window.booking = \'{{ data.booking | json }}\'</script>\n\t</body>');
+				const assignmentPath = name.split('.');
+				const initializationScript = assignmentPath
+					.reduce<string[]>((acc, _, index, arr) => {
+						if (index === arr.length - 1) return acc;
+						const currentPath = [`${global}`].concat(arr.slice(0, index + 1)).join('.');
+						acc.push(`${currentPath} = ${currentPath} || {};`);
+						return acc;
+					}, [])
+					.join('\n');
+
+				const fullPath = `${global}.${name}`;
+				const namespaceRef = `${namespace}.${key}`;
+				const scriptInjection = `\t<script>${initializationScript}${fullPath} = '{{ ${namespaceRef} | json | safe }}'</script>`;
+
+				html = html.replace('</body>', `${scriptInjection}\n\t</body>`);
 
 				if (process.env.NODE_ENV === 'development') {
-					return environment.renderString(html, {
-						data: {
-							booking: config.template.defaults,
-						},
-					});
+					const templateData = namespace.split('.').reduceRight<Record<string, unknown>>((value, key) => ({
+						[key]: value,
+					}), { [key]: config.template.defaults });
+
+					return environment.renderString(html, templateData);
 				}
 
 				return html;

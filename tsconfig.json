@@ -9,7 +9,9 @@
     "allowSyntheticDefaultImports": true,
     "outDir": "dist",
     "lib": [
-      "ESNext"
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
     ],
     "skipLibCheck": true
   },
