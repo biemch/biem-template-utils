@@ -1,4 +1,4 @@
-import { Template } from './template.js';
+import type { Template } from './template.js';
 
 export interface Config {
 	name: string;
@@ -6,4 +6,4 @@ export interface Config {
 	version: string;
 	port: number;
 	template: Template;
-}
+};

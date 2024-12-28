@@ -1,4 +1,4 @@
-import { FieldList } from './field-list.js';
+import type { FieldList } from './field-list.js';
 
 export interface Template {
 	name: string;
