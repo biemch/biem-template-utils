@@ -1,7 +1,8 @@
 name: Releases
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - master
 
 jobs:
   changelog:
