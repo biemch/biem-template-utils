@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/biemch/biem-template-utils/compare/1.2.0...1.2.1) (2024-12-28)
+
+
+### Bug Fixes
+
+* remove package-lock.json file ([1cad1bc](https://github.com/biemch/biem-template-utils/commit/1cad1bc3213c5fee68ed11a13f9321b97b12f8f9))
+
+
+
 # [1.2.0](https://github.com/biemch/biem-template-utils/compare/1.1.4...1.2.0) (2024-12-28)
 
 
@@ -24,16 +33,6 @@
 ### Bug Fixes
 
 * update github actions workflow to use latest action versions ([aedf931](https://github.com/biemch/biem-template-utils/commit/aedf931989b19d5987dd86e6ea6c551e7f4f23ac))
-
-
-
-## [1.1.1](https://github.com/biemch/biem-template-utils/compare/v1.1.0...v1.1.1) (2024-12-28)
-
-
-### Bug Fixes
-
-* trigger release workflow on release creation ([ff943d0](https://github.com/biemch/biem-template-utils/commit/ff943d0fff46444fbaf6e720dc11ce816190daa4))
-* update workflows to trigger on release creation and push to master ([9513653](https://github.com/biemch/biem-template-utils/commit/951365372aa7397b49fda75749b7682e659fe31a))
 
 
 
