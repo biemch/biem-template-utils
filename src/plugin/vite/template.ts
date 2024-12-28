@@ -1,14 +1,19 @@
-import { HmrContext, Plugin } from 'vite';
 import fs from 'fs';
 import nunjucks from 'nunjucks';
 import path from 'path';
+import {
+	HmrContext,
+	Plugin,
+} from 'vite';
+
+import { Config } from '../../type/config';
 
 interface PluginOptions {
 	configFile?: string;
 }
 
 export default function vitePluginBiem({ configFile }: PluginOptions = { configFile: 'biem.config.json' }): Plugin {
-	let config: any;
+	let config: Config;
 
 	function loadConfig() {
 		const configPath = path.resolve(configFile!);
