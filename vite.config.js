@@ -1,32 +1,44 @@
+import { extname, relative, resolve } from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import { resolve } from 'path';
+import { fileURLToPath } from 'url';
+import { glob } from 'glob';
 
 export default defineConfig(() => {
 	return {
 		plugins: [
-			dts({
-				insertTypesEntry: true,
-				copyDtsFiles: true,
-			}),
+			dts(),
+			{
+				generateBundle: (_, bundle) => {
+					Object.keys(bundle).forEach((key) => {
+						if (bundle[key].fileName.startsWith('type/')) {
+							delete bundle[key];
+						}
+					});
+				},
+			},
 		],
 		clearScreen: false,
 		build: {
 			minify: true,
 			emptyOutDir: true,
+			copyPublicDir: false,
 			lib: {
 				entry: resolve(__dirname, 'src/index.ts'),
-				name: 'VitePluginBiem',
 				formats: ['es'],
-				fileName: 'index',
 			},
 			rollupOptions: {
-				external: ['fs', 'path'],
+				external: ['fs', 'path', 'react', 'nunjucks'],
+				input: Object.fromEntries(
+					glob.sync('src/**/*.{ts,tsx}', {
+						ignore: ['src/**/*.d.ts'],
+					}).map(file => [
+						relative('src', file.slice(0, file.length - extname(file).length)),
+						fileURLToPath(new URL(file, import.meta.url)),
+					]),
+				),
 				output: {
-					globals: {
-						fs: 'fs',
-						path: 'path',
-					},
+					entryFileNames: '[name].js',
 				},
 			},
 		},
