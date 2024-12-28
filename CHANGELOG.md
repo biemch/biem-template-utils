@@ -1,4 +1,14 @@
-# 1.1.0 (2024-12-28)
+## [1.1.1](https://github.com/biemch/biem-template-utils/compare/v1.1.0...v1.1.1) (2024-12-28)
+
+
+### Bug Fixes
+
+* trigger release workflow on release creation ([ff943d0](https://github.com/biemch/biem-template-utils/commit/ff943d0fff46444fbaf6e720dc11ce816190daa4))
+* update workflows to trigger on release creation and push to master ([9513653](https://github.com/biemch/biem-template-utils/commit/951365372aa7397b49fda75749b7682e659fe31a))
+
+
+
+# [1.1.0](https://github.com/biemch/biem-template-utils/compare/58a05b830083d097317c974457b1e4effb9b2f60...v1.1.0) (2024-12-28)
 
 
 ### Bug Fixes
