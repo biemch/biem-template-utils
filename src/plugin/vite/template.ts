@@ -7,7 +7,7 @@ interface PluginOptions {
 	configFile?: string;
 }
 
-export function vitePluginBiem({ configFile }: PluginOptions = { configFile: 'biem.config.json' }): Plugin {
+export default function vitePluginBiem({ configFile }: PluginOptions = { configFile: 'biem.config.json' }): Plugin {
 	let config: any;
 
 	function loadConfig() {
