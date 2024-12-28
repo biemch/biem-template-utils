@@ -24,6 +24,28 @@
   "engines": {
     "node": ">=20.6.0"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./hook/*": {
+      "types": "./dist/hook/*.d.ts",
+      "default": "./dist/hook/*.js"
+    },
+    "./plugin/vite/*": {
+      "types": "./dist/plugin/vite/*.d.ts",
+      "default": "./dist/plugin/vite/*.js"
+    },
+    "./type/*": {
+      "types": "./dist/type/*.d.ts",
+      "default": "./dist/type/*.js"
+    },
+    "./util/*": {
+      "types": "./dist/util/*.d.ts",
+      "default": "./dist/util/*.js"
+    }
+  },
   "files": [
     "dist/"
   ],
