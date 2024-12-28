@@ -62,7 +62,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/biemch/biem-template-utils.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biemch/biem-template-utils.git"
+  },
   "scripts": {
     "build": "vite build",
     "dev": "vite dev",
