@@ -1,3 +1,12 @@
+## [1.1.2](https://github.com/biemch/biem-template-utils/compare/v1.1.1...1.1.2) (2024-12-28)
+
+
+### Bug Fixes
+
+* update github actions workflow to use latest action versions ([aedf931](https://github.com/biemch/biem-template-utils/commit/aedf931989b19d5987dd86e6ea6c551e7f4f23ac))
+
+
+
 ## [1.1.1](https://github.com/biemch/biem-template-utils/compare/v1.1.0...v1.1.1) (2024-12-28)
 
 
@@ -8,7 +17,17 @@
 
 
 
-# [1.1.0](https://github.com/biemch/biem-template-utils/compare/58a05b830083d097317c974457b1e4effb9b2f60...v1.1.0) (2024-12-28)
+# [1.1.0](https://github.com/biemch/biem-template-utils/compare/1.0.30...v1.1.0) (2024-12-28)
+
+
+### Features
+
+* add .npmrc file to configure version tagging ([63f09b9](https://github.com/biemch/biem-template-utils/commit/63f09b96f8329813ddd0e24e9dd36007861b36fe))
+* add github actions workflow for automated release creation ([3a14445](https://github.com/biemch/biem-template-utils/commit/3a14445b1705a66edbb3bcca1afaa1c2e6d64b77))
+
+
+
+## [1.0.30](https://github.com/biemch/biem-template-utils/compare/58a05b830083d097317c974457b1e4effb9b2f60...1.0.30) (2024-12-28)
 
 
 ### Bug Fixes
@@ -34,9 +53,7 @@
 
 ### Features
 
-* add .npmrc file to configure version tagging ([63f09b9](https://github.com/biemch/biem-template-utils/commit/63f09b96f8329813ddd0e24e9dd36007861b36fe))
 * add github actions workflow for automated package publishing ([e20dcdb](https://github.com/biemch/biem-template-utils/commit/e20dcdb2ee67f223d7659940334948d5c15a6e6d))
-* add github actions workflow for automated release creation ([3a14445](https://github.com/biemch/biem-template-utils/commit/3a14445b1705a66edbb3bcca1afaa1c2e6d64b77))
 * add README.md ([d026b2d](https://github.com/biemch/biem-template-utils/commit/d026b2dcd88fba52c54183cb22ba61e22bd987df))
 * initial commit ([58a05b8](https://github.com/biemch/biem-template-utils/commit/58a05b830083d097317c974457b1e4effb9b2f60))
 * update ESLint config and add new plugins for improved import management ([8d747ae](https://github.com/biemch/biem-template-utils/commit/8d747ae4baf9798f4a7288a98042634b8b340b5e))
