@@ -1,8 +1,12 @@
-import { extname, relative, resolve } from 'path';
+import { glob } from 'glob';
+import {
+	extname,
+	relative,
+	resolve,
+} from 'path';
+import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import { fileURLToPath } from 'url';
-import { glob } from 'glob';
 
 export default defineConfig(() => {
 	return {
