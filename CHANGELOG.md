@@ -1,3 +1,12 @@
+## [1.2.2](https://github.com/biemch/biem-template-utils/compare/1.2.1...1.2.2) (2024-12-29)
+
+
+### Bug Fixes
+
+* sort imports in vite.config.js ([c61f70d](https://github.com/biemch/biem-template-utils/commit/c61f70d4c72c75cd53148ca969265b41aa0db4f1))
+
+
+
 ## [1.2.1](https://github.com/biemch/biem-template-utils/compare/1.2.0...1.2.1) (2024-12-28)
 
 
@@ -24,15 +33,6 @@
 * update create release action to use elgohr/github-release-action@v5 ([6ee4ed5](https://github.com/biemch/biem-template-utils/commit/6ee4ed5a3dfe3e22df19f536b67701cdedc866e8))
 * update create-release action to version 1.14.0 ([8e85468](https://github.com/biemch/biem-template-utils/commit/8e85468476efc45ff05bb4735600023481e9c424))
 * update release action parameters for consistency ([2074d6f](https://github.com/biemch/biem-template-utils/commit/2074d6fc9c70f4163db192aeffaa89c8a7db041c))
-
-
-
-## [1.1.2](https://github.com/biemch/biem-template-utils/compare/v1.1.1...1.1.2) (2024-12-28)
-
-
-### Bug Fixes
-
-* update github actions workflow to use latest action versions ([aedf931](https://github.com/biemch/biem-template-utils/commit/aedf931989b19d5987dd86e6ea6c551e7f4f23ac))
 
 
 
