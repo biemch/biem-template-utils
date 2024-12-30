@@ -1,3 +1,12 @@
+## [1.2.3](https://github.com/biemch/biem-template-utils/compare/1.2.2...1.2.3) (2024-12-30)
+
+
+### Bug Fixes
+
+* eslint rules ([5e4813a](https://github.com/biemch/biem-template-utils/commit/5e4813abe4499535f2a6c26de0297046e29c280e))
+
+
+
 ## [1.2.2](https://github.com/biemch/biem-template-utils/compare/1.2.1...1.2.2) (2024-12-29)
 
 
@@ -30,8 +39,6 @@
 
 ### Bug Fixes
 
-* update create release action to use elgohr/github-release-action@v5 ([6ee4ed5](https://github.com/biemch/biem-template-utils/commit/6ee4ed5a3dfe3e22df19f536b67701cdedc866e8))
-* update create-release action to version 1.14.0 ([8e85468](https://github.com/biemch/biem-template-utils/commit/8e85468476efc45ff05bb4735600023481e9c424))
 * update release action parameters for consistency ([2074d6f](https://github.com/biemch/biem-template-utils/commit/2074d6fc9c70f4163db192aeffaa89c8a7db041c))
 
 
