@@ -29,6 +29,7 @@ export default function vitePluginBiem<T extends object>({
 	}
 
 	const config = { template: { defaults } };
+
 	const {
 		namespace = 'data',
 		key = 'booking',
@@ -70,9 +71,7 @@ export default function vitePluginBiem<T extends object>({
 				html = html.replace('</body>', `${scriptInjection}\n\t</body>`);
 
 				if (process.env.NODE_ENV === 'development') {
-					const templateData = namespace.split('.').reduceRight<Record<string, unknown>>((value, key) => ({
-						[key]: value,
-					}), { [key]: config.template.defaults });
+					const templateData = namespace.split('.').reduceRight<Record<string, unknown>>((value, key) => ({ [key]: value }), { [key]: config.template.defaults });
 
 					return environment.renderString(html, templateData);
 				}
