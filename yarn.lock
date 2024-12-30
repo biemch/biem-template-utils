@@ -27,6 +27,20 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
+"@biem/eslint-config@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@biem/eslint-config/-/eslint-config-2.1.1.tgz#c32fe4fe5c6805edc8510b27733218e3db7c23a9"
+  integrity sha512-zp2mJfuZnkuBWJtky5PREq95o/tdog+LN6hMjwo8l+3nobL3ijqMAD5OpF2bQoVCr+a7D+rlPcQcJ9WmVa0+gg==
+  dependencies:
+    "@eslint/js" "^9.17.0"
+    "@stylistic/eslint-plugin" "^2.12.1"
+    eslint-plugin-module-bindings-newline "^1.0.1"
+    eslint-plugin-react "^7.37.3"
+    eslint-plugin-simple-import-sort "^12.1.1"
+    eslint-plugin-unused-imports "^4.1.4"
+    globals "^15.14.0"
+    typescript-eslint "^8.18.2"
+
 "@esbuild/aix-ppc64@0.24.2":
   version "0.24.2"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.24.2.tgz#38848d3e25afe842a7943643cbcd387cc6e13461"
@@ -1226,10 +1240,10 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-plugin-import-newlines@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import-newlines/-/eslint-plugin-import-newlines-1.4.0.tgz#469cf3ebb5a8691ba827bdceb00e751bf2f084d1"
-  integrity sha512-+Cz1x2xBLtI9gJbmuYEpvY7F8K75wskBmJ7rk4VRObIJo+jklUJaejFJgtnWeL0dCFWabGEkhausrikXaNbtoQ==
+eslint-plugin-module-bindings-newline@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-module-bindings-newline/-/eslint-plugin-module-bindings-newline-1.0.1.tgz#b595d2ba55d50e8a369a6bb71fdc442a3b2da7ab"
+  integrity sha512-d1A5ny7d6betslqG6Vee5Gwh53UYIKSBwYjBy4nblMntVRSnSZCP6L3Sd2nlT1qmzp9lYh2dU8Hiz3a4XzHPqQ==
 
 eslint-plugin-react@^7.37.3:
   version "7.37.3"
