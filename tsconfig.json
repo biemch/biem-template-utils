@@ -1,25 +1,30 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "sourceMap": false,
-    "allowJs": true,
+    "target": "ESNext",                // Changed to ESNext since you're building a modern library
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    
+    /* Declarations */
     "declaration": true,
     "emitDeclarationOnly": true,
+    "outDir": "dist",
+    
+    /* Module Interop */
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist",
-    "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "skipLibCheck": true
+    
+    /* Type Checking */
+    "strict": true,
+    "skipLibCheck": true,
+    
+    /* Library */
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    
+    /* Path Resolution */
+    "resolveJsonModule": true
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
