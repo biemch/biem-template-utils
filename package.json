@@ -71,6 +71,7 @@
     "lint:fix": "eslint --fix \"src/**/{*.ts,*.tsx}\"",
     "prepublishOnly": "yarn build"
   },
+  "sideEffects": false,
   "type": "module",
   "types": "./dist/index.d.ts"
 }
