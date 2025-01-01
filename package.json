@@ -1,7 +1,7 @@
 {
   "name": "@biem/template-utils",
   "description": "Biem Template Utils",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "Michael Freund <michael@biem.ch>",
   "devDependencies": {
     "@biem/eslint-config": "^2.1.3",
