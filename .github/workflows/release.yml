@@ -16,8 +16,8 @@ jobs:
           preset: 'conventionalcommits'
           tag-prefix: ''
           version-file: './package.json'
-          github-user-email: 'ci@biem.ch'
-          github-user-name: 'Biem Changelog Action'
+          git-user-email: 'ci@biem.ch'
+          git-user-name: 'Biem Changelog Action'
           github-token: ${{ secrets.PA_TOKEN }}
       - name: create release
         uses: elgohr/Github-Release-Action@v5
