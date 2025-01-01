@@ -11,11 +11,14 @@ jobs:
       - uses: actions/checkout@v4.2.2
       - name: Conventional Changelog Action
         id: changelog
-        uses: TriPSs/conventional-changelog-action@v5
+        uses: TriPSs/conventional-changelog-action@v6.0.0
         with:
+          preset: 'conventionalcommits'
           tag-prefix: ''
-          github-token: ${{ secrets.PA_TOKEN }}
           version-file: './package.json'
+          github-user-email: 'ci@biem.ch'
+          github-user-name: 'Biem Changelog Action'
+          github-token: ${{ secrets.PA_TOKEN }}
       - name: create release
         uses: elgohr/Github-Release-Action@v5
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
@@ -23,4 +26,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PA_TOKEN }}
         with:
           tag: ${{ steps.changelog.outputs.tag }}
-          title: "@biem/template-utils@${{ steps.changelog.outputs.tag }}"
+          title: "v${{ steps.changelog.outputs.tag }}"
