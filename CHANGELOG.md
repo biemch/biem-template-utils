@@ -1,3 +1,12 @@
+## [1.2.4](https://github.com/biemch/biem-template-utils/compare/1.2.3...1.2.4) (2024-12-31)
+
+
+### Bug Fixes
+
+* update node engine version to 20.12.2 ([4ee2573](https://github.com/biemch/biem-template-utils/commit/4ee2573990f1b5ffdd6e379eec2eebd7fdc84ec9))
+
+
+
 ## [1.2.3](https://github.com/biemch/biem-template-utils/compare/1.2.2...1.2.3) (2024-12-30)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * configure nunjucks with autoescape: true to prevent XSS attacks. use safe filter to ensure JSON data is safely injected. ([b5a80b4](https://github.com/biemch/biem-template-utils/commit/b5a80b459ac332fc757bf8e6ab1d3b39b70ad286))
-
-
-
-## [1.1.4](https://github.com/biemch/biem-template-utils/compare/1.1.3...1.1.4) (2024-12-28)
-
-
-### Bug Fixes
-
-* update release action parameters for consistency ([2074d6f](https://github.com/biemch/biem-template-utils/commit/2074d6fc9c70f4163db192aeffaa89c8a7db041c))
 
 
 
