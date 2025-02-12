@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import nunjucks from 'nunjucks';
 import path from 'path';
 import {
@@ -8,35 +7,14 @@ import {
 
 interface PluginOptions<T extends object> {
 	defaults: T;
-	template?: {
-		global?: string;
-		name?: string;
-		namespace?: string;
-		key?: string;
-	};
 }
 
-export default function vitePluginBiem<T extends object>({
-	defaults,
-	template = {
-		global: 'window',
-		name: 'booking',
-		namespace: 'data',
-		key: 'booking',
-	},
-}: PluginOptions<T>): Plugin {
+export default function vitePluginBiem<T extends object>({ defaults }: PluginOptions<T>): Plugin {
 	if (!defaults || typeof defaults !== 'object') {
 		throw new Error('defaults must be an object');
 	}
 
 	const config = { template: { defaults } };
-
-	const {
-		namespace = 'data',
-		key = 'booking',
-		global = 'window',
-		name = 'booking',
-	} = template;
 
 	return {
 		name: 'vite-plugin-biem',
@@ -55,26 +33,8 @@ export default function vitePluginBiem<T extends object>({
 				const environment = nunjucks.configure({ autoescape: true });
 				environment.addFilter('json', (value: unknown) => JSON.stringify(value));
 
-				const assignmentPath = name.split('.');
-				const initializationScript = assignmentPath
-					.reduce<string[]>((acc, _, index, arr) => {
-						if (index === arr.length - 1) return acc;
-						const currentPath = [`${global}`].concat(arr.slice(0, index + 1)).join('.');
-						acc.push(`${currentPath} = ${currentPath} || {};`);
-						return acc;
-					}, [])
-					.join('\n');
-
-				const fullPath = `${global}.${name}`;
-				const namespaceRef = `${namespace}.${key}`;
-				const scriptInjection = `\t<script>${initializationScript}${fullPath} = '{{ ${namespaceRef} | json | safe }}'</script>`;
-
-				html = html.replace('</body>', `${scriptInjection}\n\t</body>`);
-
 				if (process.env.NODE_ENV === 'development') {
-					const templateData = namespace.split('.').reduceRight<Record<string, unknown>>((value, key) => ({ [key]: value }), { [key]: config.template.defaults });
-
-					return environment.renderString(html, templateData);
+					return environment.renderString(html, { input: config.template.defaults });
 				}
 
 				return html;
