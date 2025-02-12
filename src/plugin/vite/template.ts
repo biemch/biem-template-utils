@@ -34,11 +34,7 @@ export default function vitePluginBiem<T extends object>({ defaults }: PluginOpt
 				environment.addFilter('json', (value: unknown) => JSON.stringify(value));
 
 				if (process.env.NODE_ENV === 'development') {
-					return environment.renderString(html, {
-						// TODO: create dummy booking content to replicate behavior of booking renderer ?
-						bookingContent: {},
-						input: config.template.defaults,
-					});
+					return environment.renderString(html, { input: config.template.defaults });
 				}
 
 				return html;
