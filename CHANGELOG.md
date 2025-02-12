@@ -1,3 +1,9 @@
+## 1.3.0 (2025-02-12)
+
+### Refactor
+
+- github workflow ([d02f5da](https://github.com/biemch/biem-template-utils/commit/d02f5dad2ef42acd686d19f8e9b4d8d8ab9a699b))
+
 ## 1.2.5 (2025-01-01)
 
 ### Bug Fix
