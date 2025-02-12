@@ -1,3 +1,10 @@
+## 1.3.1 (2025-02-12)
+
+### Feature
+
+- remove booking content from template data ([50f8f62](https://github.com/biemch/biem-template-utils/commit/50f8f62245a58f882f24d148c3e7c6ab13b0f7e2))
+- remove script injection; cleanup ([0ce8820](https://github.com/biemch/biem-template-utils/commit/0ce88206935cfde10bfad58cfb7bc88a09c890f7))
+
 ## 1.3.0 (2025-02-12)
 
 ### Refactor
