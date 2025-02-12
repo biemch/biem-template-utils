@@ -4,25 +4,15 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "isolatedModules": true,
-    
-    /* Declarations */
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "dist",
-    
-    /* Module Interop */
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    
-    /* Type Checking */
     "strict": true,
     "skipLibCheck": true,
-    
-    /* Library */
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
-    
-    /* Path Resolution */
     "resolveJsonModule": true
   },
   "include": ["src"],

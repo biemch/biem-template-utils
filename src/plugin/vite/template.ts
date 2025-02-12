@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import nunjucks from 'nunjucks';
 import path from 'path';
 import {
